@@ -13,7 +13,7 @@
 
 ![Visão executiva do Pulso](docs/assets/visao-executiva.png)
 
-## Resumo executivo
+## Resumo
 
 Em banco digital, uma conta aberta não significa relacionamento ativo. O cliente pode deixar de receber salário, fazer Pix, pagar contas e usar o cartão sem encerrar formalmente a conta.
 
