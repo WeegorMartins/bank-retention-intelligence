@@ -34,15 +34,17 @@ A solução contém:
 - aplicação interativa;
 - testes, governança e monitoramento.
 
+Na simulação com 50 mil clientes, o modelo alcançou PR-AUC de 0,898 e concentrou 87,1% dos churns nos 10% priorizados. A política identificou R$ 481,7 mil de valor anual em risco e estimou R$ 26,4 mil de valor líquido — sempre tratados como resultados simulados, não como impacto realizado.
+
 O principal aprendizado foi simples:
 
 > risco de churn não é recomendação de contato.
 
 A decisão correta depende de risco, efeito incremental, valor, custo, consentimento e elegibilidade.
 
-Aplicação: `[colar link]`
+Aplicação: https://pulso-retencao-inteligente.streamlit.app/
 
-Repositório e documentação: `[colar link]`
+Repositório e documentação: https://github.com/WeegorMartins/bank-retention-intelligence
 
 ## Carrossel de dez páginas
 
@@ -88,4 +90,3 @@ Mostre atributos excluídos, consentimento, saturação e monitoramento.
 - “A solução está pronta para produção real.”
 
 Use “estimativa simulada”, “hipótese diagnóstica”, “efeito observado no experimento sintético” e “protótipo de produto analítico”.
-

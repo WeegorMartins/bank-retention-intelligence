@@ -1,37 +1,90 @@
-# Memorando executivo — modelo para preencher depois da execução
+# Memorando executivo — Política de retenção Pulso
+
+**Cenário:** banco digital fictício, dados 100% sintéticos  
+**Snapshot de decisão:** maio de 2026  
+**Horizonte de risco:** 60 dias
 
 ## Decisão solicitada
 
-Definir uma política de retenção para clientes com risco de perda de relacionamento em 60 dias, respeitando capacidade operacional, consentimento e retorno econômico.
+Autorizar um piloto controlado de retenção para clientes priorizados pelo valor líquido esperado, preservando grupo de controle, consentimento, limites de contato e regras independentes de crédito.
 
-## Diagnóstico
+## Diagnóstico executivo
 
-- Tamanho do portfólio avaliado: `[preencher]`
-- Clientes em risco alto ou crítico: `[preencher]`
-- Valor anual em risco: `[preencher]`
-- Três causas mais relevantes: `[preencher]`
+| Indicador | Resultado simulado |
+|---|---:|
+| Portfólio avaliado | 50.000 clientes |
+| Risco alto ou crítico | 3.334 clientes |
+| Valor anual em risco | R$ 481,7 mil |
+| Clientes com ação economicamente elegível | 1.907 |
+| Valor líquido esperado da política | R$ 26,4 mil |
+
+As três maiores concentrações de valor em risco são:
+
+1. **frustração com crédito:** aproximadamente R$ 221,2 mil;
+2. **baixo engajamento:** aproximadamente R$ 152,7 mil;
+3. **falha de atendimento:** aproximadamente R$ 56,2 mil.
+
+Esses segmentos são hipóteses diagnósticas baseadas em comportamento observado. Não devem ser interpretados como causa individual comprovada.
+
+## Evidência do modelo
+
+- PR-AUC no teste temporal: **0,898**;
+- ROC-AUC no teste temporal: **0,944**;
+- recall dentro dos 10% priorizados: **87,1%**;
+- lift dentro dos 10% priorizados: **8,7x**;
+- avaliação fora da amostra em período posterior;
+- idade e estado excluídos do modelo de decisão.
+
+O ganho operacional está na concentração de clientes que efetivamente perdem relacionamento dentro de uma capacidade limitada, e não apenas em uma métrica global de classificação.
 
 ## Recomendação
 
-Adotar uma política que escolha a ação pela combinação de probabilidade, retenção incremental, valor anual e custo. Manter grupo de controle e limite de capacidade.
+Iniciar um piloto com capacidade limitada e filas ordenadas por valor líquido esperado. A política deve:
 
-## Hipóteses que precisam de validação
+1. selecionar clientes por risco e valor;
+2. escolher a ação com maior retenção incremental estimada;
+3. descontar o custo da intervenção;
+4. bloquear contatos sem consentimento ou com saturação recente;
+5. encaminhar recomendações de crédito somente para avaliação independente;
+6. reservar grupo de controle para medir retenção e margem incrementais.
 
-1. O efeito observado no experimento permanece estável no novo período.
-2. A margem mensal é uma aproximação adequada do valor retido.
-3. O contato não gera aumento relevante de reclamação ou descadastro.
-4. A segmentação diagnóstica é acionável pelas áreas responsáveis.
+Linhas com evidência baixa não devem entrar em implantação ampla. Primeiro devem passar por experimento controlado.
 
-## Riscos
+## Métricas do piloto
 
-- saturação de contato;
-- seleção de falsos positivos;
-- mudança no comportamento do portfólio;
-- aumento de uso sem aumento de margem;
-- conflito com política de crédito;
-- disparidades entre grupos.
+### Resultado principal
 
-## Próximo teste
+- retenção incremental em 60 dias;
+- margem incremental líquida do custo;
+- valor líquido por cliente elegível.
 
-Executar um experimento controlado com capacidade limitada, estratificação por causa provável e medição de retenção, margem incremental, reclamações e descadastro.
+### Proteções
 
+- reclamações e descadastros;
+- frequência de contato;
+- inadimplência e deterioração de risco, quando houver avaliação de crédito;
+- disparidades de resultado entre grupos monitorados;
+- estabilidade do escore e qualidade dos dados.
+
+## Hipóteses que ainda precisam de validação
+
+1. O efeito observado no experimento sintético permanece estável em novo período.
+2. A margem mensal representa adequadamente o valor econômico retido.
+3. O contato não aumenta reclamação, descadastro ou outros efeitos adversos.
+4. A segmentação diagnóstica é operacionalmente acionável.
+5. O ganho incremental permanece positivo após custos reais de canal e operação.
+
+## Riscos de decisão
+
+- falsos positivos e contato desnecessário;
+- saturação e piora da experiência;
+- mudança de comportamento da carteira;
+- confusão entre correlação diagnóstica e causalidade;
+- uso indevido da recomendação de “avaliar limite” como decisão de crédito;
+- implantação ampla antes de evidência experimental suficiente.
+
+## Próximo passo proposto
+
+Executar experimento controlado, estratificado por causa provável e força da evidência, com leitura em 60 dias. A decisão de escala deve ocorrer somente se houver ganho incremental de retenção e margem, sem violação dos indicadores de proteção.
+
+> Todos os números deste memorando vêm de uma simulação reproduzível. Eles demonstram método de decisão e não representam resultado financeiro realizado.
