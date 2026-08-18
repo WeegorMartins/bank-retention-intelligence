@@ -1,0 +1,5 @@
+policy,customers_contacted,expected_net_value
+Não agir,0,0.0
+Contatar todo alto risco,3334,19005.479337118395
+Capacidade fixa: top 10%,5000,26409.03790773131
+Política econômica personalizada,1906,26409.037907731305

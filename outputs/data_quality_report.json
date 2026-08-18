@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "checks": {
+    "customer_id_unique": true,
+    "customer_id_not_null": true,
+    "customer_month_unique": true,
+    "non_negative_transactions": true,
+    "non_negative_balance": true,
+    "activity_has_valid_customer": true,
+    "experiment_has_control": true,
+    "experiment_binary_outcome": true
+  },
+  "rows": {
+    "customers": 50000,
+    "monthly_activity": 1143454,
+    "retention_experiment": 23000
+  }
+}

@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cadastro sintético de clientes do banco digital."
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: state
+        tests: [not_null]
+      - name: monthly_contribution_margin
+        tests: [not_null]
+
+  - name: stg_monthly_activity
+    description: "Comportamento mensal por cliente."
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: activity_month
+        tests: [not_null]
+      - name: financial_txn_count
+        tests: [not_null]
+
+  - name: mart_customer_monthly
+    description: "Produto de dados mensal que une comportamento, valor e atendimento."
+    columns:
+      - name: customer_id
+        tests: [not_null]
+      - name: activity_month
+        tests: [not_null]
+

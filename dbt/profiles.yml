@@ -1,0 +1,8 @@
+bank_retention_intelligence:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "bank_retention.duckdb"
+      threads: 4
+

@@ -1,0 +1,23 @@
+name: quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - name: Install
+        run: pip install -r requirements-dev.txt
+      - name: Compile
+        run: python -m compileall src app.py
+      - name: Unit tests
+        run: pytest -q
+      - name: Small end-to-end smoke test
+        run: python -m src.run_pipeline --customers 1500
