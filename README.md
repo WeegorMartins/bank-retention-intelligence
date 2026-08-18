@@ -228,7 +228,7 @@ Limitações essenciais:
 
 **Weegor Martins** — análise de dados, inteligência de clientes e produtos analíticos para decisão.
 
-[Perfil no GitHub](https://github.com/WeegorMartins)
+[LinkedIn](https://www.linkedin.com/in/weegorlucio/) · [GitHub](https://github.com/WeegorMartins) · [Aplicação](https://pulso-retencao-inteligente.streamlit.app/)
 
 ---
 
